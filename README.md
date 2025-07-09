@@ -15,11 +15,11 @@
 
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/username/project_name.git
+    git clone https://github.com/username/movies_project.git
     ```
 2. Перейдите в директорию проекта:
     ```bash
-    cd project_name
+    cd movies_project
     ```
 3. Установите необходимые зависимости:
     ```bash
@@ -51,15 +51,14 @@
 Функция в файле делает предобработку отправленных пользователем данных перед функцией predict.
 ### [one_hot_encoder.joblib](one_hot_encoder.joblib)
 Обученное one-hot кодирование для категориальных признаков.
-### [ordinal_encoder.joblib](ordinal_encoder.joblib)
-Порядковое кодирование для признака Saving accounts.
 ### [scaler.joblib](scaler.joblib)
 Обученная стандартизация признаков.
 ### Описание решения
-К категориальным признакам ('Sex', 'Housing', 'Checking account', 'Purpose') применено one-hot кодирование.  
-К Saving accounts применено порядковое кодирование. 
-При выборе модели сравнивались Random Forest Classifier и Gradient Boosting Classifier, для обеих был сделан подбор гиперпараметров через GridSearch. Лучше справилась модель градиентного бустинга (roc_auc: 0.764 на тесте). 
-Анализ данных, обучение и тестирование моделей представлены в файле [Credit_scoring_final.ipynb](Credit_scoring_final.ipynb).
+К категориальным признакам (['genre', 'director', 'star']) применено one-hot кодирование.  
+к числовым признакам (['budget', 'runtime']) применено скалирование
+При выборе модели сравнивались Random Forest, Linear Regression, Support Vector Regression.
+Лучше справилась модель линейной регрессии (MAE: 0.65, RMSE: 0.853067  на тесте). 
+Анализ данных, обучение и тестирование моделей представлены в файле [movie_rating_predictions.ipynb](movie_rating_predictions.ipynb).
 
 
 
